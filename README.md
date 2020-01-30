@@ -4,7 +4,7 @@
 
 Fill this out as you complete the challenge
 
-## Installation
+## Setup
 
 0. Install [Docker](https://docs.docker.com/install/)
 1. Click the green "use this template" button to make your own copy of this repository, and clone it
