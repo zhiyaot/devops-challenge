@@ -12,7 +12,7 @@ redis_client = FlaskRedis(app)
 
 # Determine if connected to Redis
 try:
-    redis_client.set("status", "Redis is working correctly")
+    redis_client.set("visitors", 0)
     redis_connected = True
 except ConnectionError:
     redis_connected = False
@@ -21,9 +21,12 @@ except ConnectionError:
 @app.route("/")
 def index():
     if redis_connected:
-        return f"Redis says: {redis_client.get('status').decode('utf-8')}"
+        visitors = int(redis_client.get('visitors'))
+        formatted_visitors = "1 visitor" if visitors == 1 else f"{visitors} visitors"
+        redis_client.set("visitors", visitors + 1)
+        return f"We have had: {formatted_visitors}"
     else:
-        return "Not connected to redis "
+        return "Not connected to redis"
 
 
 if __name__ == "__main__":
