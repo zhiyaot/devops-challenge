@@ -16,4 +16,4 @@ Edit the `Dockerfile` to create a working docker image for the basic flask app. 
 
 ## Submission
 
-Follow the instructions at on the Technical Challenge page for submission.
+Follow the instructions on the Technical Challenge page for submission.
